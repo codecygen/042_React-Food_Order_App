@@ -14,13 +14,12 @@ function App() {
     setCartIsShown(false);
   };
   
-  
 
   return (
     <>
       {/* React-ConditionalRendering */}
-      {cartIsShown && <Cart />}
-      <Header />
+      {cartIsShown && <Cart onClose={hideCartHandler} />}
+      <Header onShowCart={showCartHandler} />
       <main>
         <Meals />
       </main>
