@@ -18,7 +18,7 @@ function App() {
 
   return (
     <>
-      {/* React-Conditional Rendering */}
+      {/* React-ConditionalRendering */}
       {cartIsShown && <Cart />}
       <Header />
       <main>
