@@ -5,7 +5,7 @@ import classes from './MealItemForm.module.css';
 const MealItemForm = props => {
     return (
         <form className={classes.form}>
-            {/* React - Props - Spread Operator */}
+            {/* React-Props-SpreadOperator */}
             <Input
                 label="Amount"
                 input={{

@@ -5,7 +5,7 @@ const Input = props => {
     return (
         <div className={classes.input}>
             <label htmlFor={props.input.id}>{props.label}</label>
-            {/* React - Props - Spread Operator */}
+            {/* React-Props-SpreadOperator */}
             <input {...props.input} />
         </div>
     );
