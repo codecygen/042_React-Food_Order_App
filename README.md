@@ -1,6 +1,6 @@
 Searchable Sections:
 
-- React-ConditionalRendering
+- React-ConditionalRendering-useState
 - React-Portals
 - React-Props-SpreadOperator
 - React-onClickEvent-MovinguseStateDownWithProps  
@@ -12,3 +12,4 @@ Searchable Sections:
     CartProvider.js uses info in cart-context.js  
     App.js imports and wraps CartProvider.js  
     HeaderCartButton.js reaches to cart-context.js and uses props controlled in CartProvider.js  
+- React-useReducer-ComplexStateManagement  
