@@ -11,13 +11,15 @@ const Cart = props => {
     ;
 
     return (
-        <Modal>
+        // React-onClickEvent-MovinguseStateDownWithProps
+        <Modal onClose={props.onClose}>
             {cartItems}
             <div className={classes.total}>
                 <span>Total Amount</span>
                 <span>235.62</span>
             </div>
             <div className={classes.actions}>
+                {/* React-onClickEvent-MovinguseStateDownWithProps */}
                 <button className={classes['button--alt']} onClick={props.onClose}>Close</button>
                 <button className={classes.button}>Order</button>
             </div>

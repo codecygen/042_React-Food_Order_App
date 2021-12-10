@@ -10,6 +10,7 @@ function App() {
     setCartIsShown(true);
   };
 
+  // React-onClickEvent-MovinguseStateDownWithProps
   const hideCartHandler = () => {
     setCartIsShown(false);
   };
@@ -18,6 +19,7 @@ function App() {
   return (
     <>
       {/* React-ConditionalRendering */}
+      {/* React-onClickEvent-MovinguseStateDownWithProps */}
       {cartIsShown && <Cart onClose={hideCartHandler} />}
       <Header onShowCart={showCartHandler} />
       <main>

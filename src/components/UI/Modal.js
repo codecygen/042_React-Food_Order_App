@@ -4,7 +4,8 @@ import classes from './Modal.module.css';
 
 const Backdrop = props => {
     return (
-        <div className={classes.backdrop}></div>
+        // React-onClickEvent-MovinguseStateDownWithProps
+        <div className={classes.backdrop} onClick={props.onClose}></div>
     );
 };
 
@@ -22,7 +23,8 @@ const Modal = props => {
     return (
         <>
             {/* React-Portals */}
-            {ReactDOM.createPortal(<Backdrop />, portalElement)}
+            {/* React-onClickEvent-MovinguseStateDownWithProps */}
+            {ReactDOM.createPortal(<Backdrop onClose={props.onClose} />, portalElement)}
             {ReactDOM.createPortal(<ModalOverlay>{props.children}</ModalOverlay>, portalElement)}
         </>
     );
