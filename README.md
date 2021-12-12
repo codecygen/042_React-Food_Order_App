@@ -12,4 +12,8 @@ Searchable Sections:
     CartProvider.js uses info in cart-context.js  
     App.js imports and wraps CartProvider.js  
     HeaderCartButton.js reaches to cart-context.js and uses props controlled in CartProvider.js  
+    CartProvider.js holds both info of "React-ContextAPI-CentralizingProps" and "React-useReducer-ComplexStateManagement".  
 - React-useReducer-ComplexStateManagement  
+    CartProvider.js holds both info of "React-ContextAPI-CentralizingProps" and "React-useReducer-ComplexStateManagement".  
+- React-useRef-useStateAlternativeNoReRender-forwardRef  
+    "MealItemForm.js" will forward the ref to the children component "Input.js".

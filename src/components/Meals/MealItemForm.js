@@ -1,20 +1,30 @@
-import React from 'react';
+// React-useRef-useStateAlternativeNoReRender-forwardRef
+import React, { useRef } from 'react';
 import Input from '../UI/Input';
 import classes from './MealItemForm.module.css';
 
 const MealItemForm = props => {
+    // React-useRef-useStateAlternativeNoReRender-forwardRef
+    const amountInputRef = useRef();
+
+    const submitHandler = event => {
+        event.preventDefault();
+    };
+
     return (
-        <form className={classes.form}>
+        <form className={classes.form} onSubmit={submitHandler}>
             {/* React-Props-SpreadOperator */}
             <Input
+                // React-useRef-useStateAlternativeNoReRender-forwardRef
+                ref={amountInputRef}
                 label="Amount"
                 input={{
-                  id: `amount_${props.id}`,
-                  type: 'number',
-                  min: '1',
-                  max: '5',
-                  step: '1',
-                  defaultValue: '1'
+                    id: `amount_${props.id}`,
+                    type: 'number',
+                    min: '1',
+                    max: '5',
+                    step: '1',
+                    defaultValue: '1'
                 }}
             />
             <button>+ Add</button>
