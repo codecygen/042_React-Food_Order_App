@@ -1,3 +1,4 @@
+// React-ContextAPI-CentralizingProps
 import React, {useContext} from 'react';
 import CartIcon from '../Cart/CartIcon';
 // React-ContextAPI-CentralizingProps
@@ -9,10 +10,14 @@ const HeaderCartButton = props => {
     // React-ContextAPI-CentralizingProps
     const cartCtx = useContext(CartContext);
 
+    // cartCtx.items is an array of objects of items. We need to only extract the amounts here.
+    const amount = [];
+    cartCtx.items.forEach(item => amount.push(item.amount));
+
     // We use reduce method because a person can buy multiple of same item.
     // So we need to add all item numbers added on top of each other.
     // React-ContextAPI-CentralizingProps
-    const numberOfCartItems = cartCtx.items.reduce((previousValue, currentValue) => {
+    const numberOfCartItems = amount.reduce((previousValue, currentValue) => {
         return (
             previousValue + currentValue
         );

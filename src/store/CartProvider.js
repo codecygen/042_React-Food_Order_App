@@ -27,7 +27,7 @@ const cartReducer = (state, action) => {
         // Add the new amount which is calculated as price * amount of the
         // newly added item.
         const updatedTotalAmount = state.totalAmount + action.newItem.price * action.newItem.amount;
-        
+
         return { items: updatedItems, totalAmount: updatedTotalAmount };
     }
 
@@ -40,6 +40,7 @@ const CartProvider = props => {
     // React-useReducer-ComplexStateManagement
     const [cartState, dispatchCart] = useReducer(cartReducer, defaultCartState);
 
+    // React-ContextAPI-CentralizingProps
     const addItemToCartHandler = item => {
         // React-useReducer-ComplexStateManagement
         // "type" property is for identifying the action name
@@ -53,6 +54,7 @@ const CartProvider = props => {
         dispatchCart({type: 'ADD', newItem: item});
     };
 
+    // React-ContextAPI-CentralizingProps
     const removeItemFromCartHandler = id => {
         // React-useReducer-ComplexStateManagement
         dispatchCart({type: 'REMOVE', newId: id});
@@ -64,8 +66,12 @@ const CartProvider = props => {
         items: cartState.items,
         // React-useReducer-ComplexStateManagement
         totalAmount: cartState.totalAmount,
-        addItem: () => {},
-        removeItem: () => {}
+        // React-ContextAPI-CentralizingProps
+        // Item info is received from "MealItem.js" and the argument is passed
+        // to "addItemToCartHandler"
+        addItem: addItemToCartHandler,
+        // React-ContextAPI-CentralizingProps
+        removeItem: removeItemFromCartHandler
     };
 
     return (

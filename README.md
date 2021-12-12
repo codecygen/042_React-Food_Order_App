@@ -1,6 +1,7 @@
 Searchable Sections:
 
 - React-ConditionalRendering-useState
+- React-LiftingStateUp
 - React-Portals
 - React-Props-SpreadOperator
 - React-onClickEvent-MovinguseStateDownWithProps  
@@ -16,4 +17,5 @@ Searchable Sections:
 - React-useReducer-ComplexStateManagement  
     CartProvider.js holds both info of "React-ContextAPI-CentralizingProps" and "React-useReducer-ComplexStateManagement".  
 - React-useRef-useStateAlternativeNoReRender-forwardRef  
-    "MealItemForm.js" will forward the ref to the children component "Input.js".
+    "MealItemForm.js" will forward the ref to the children component "Input.js".  
+    Input we receive from "ref" prop will always be in String format even if it is a number. In order to convert it into a Number type variable, put plus sign in front of it.
