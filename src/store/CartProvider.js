@@ -16,7 +16,19 @@ const defaultCartState = {
 // Because it won't not need anything from the component function
 const cartReducer = (state, action) => {
     if (action.type === 'ADD') {
-        return { items: , totalAmount:  };
+        // Do not use "push()" here, because in that case,
+        // React won't know the old state snapshot is edited.
+        // So with "contact()", you have to create a brand new snapshot.
+        // This means find old items state and concatenate the new item
+        // which comes with the new ADD action.
+        const updatedItems = state.items.concat(action.newItem);
+
+        // Here, it says take the old satate of total amount to be paid
+        // Add the new amount which is calculated as price * amount of the
+        // newly added item.
+        const updatedTotalAmount = state.totalAmount + action.newItem.price * action.newItem.amount;
+        
+        return { items: updatedItems, totalAmount: updatedTotalAmount };
     }
 
     return defaultCartState;
@@ -42,7 +54,8 @@ const CartProvider = props => {
     };
 
     const removeItemFromCartHandler = id => {
-
+        // React-useReducer-ComplexStateManagement
+        dispatchCart({type: 'REMOVE', newId: id});
     };
 
     // React-ContextAPI-CentralizingProps
