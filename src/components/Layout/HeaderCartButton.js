@@ -12,6 +12,7 @@ const HeaderCartButton = props => {
 
     // cartCtx.items is an array of objects of items. We need to only extract the amounts here.
     const amount = [];
+    // React-ContextAPI-CentralizingProps
     cartCtx.items.forEach(item => amount.push(item.amount));
 
     // We use reduce method because a person can buy multiple of same item.
