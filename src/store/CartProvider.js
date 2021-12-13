@@ -16,17 +16,37 @@ const defaultCartState = {
 // Because it won't not need anything from the component function
 const cartReducer = (state, action) => {
     if (action.type === 'ADD') {
-        // Do not use "push()" here, because in that case,
-        // React won't know the old state snapshot is edited.
-        // So with "contact()", you have to create a brand new snapshot.
-        // This means find old items state and concatenate the new item
-        // which comes with the new ADD action.
-        const updatedItems = state.items.concat(action.newItem);
-
         // Here, it says take the old satate of total amount to be paid
         // Add the new amount which is calculated as price * amount of the
         // newly added item.
         const updatedTotalAmount = state.totalAmount + action.newItem.price * action.newItem.amount;
+
+        const existingCartItemIndex = state.items.findIndex(
+            item => item.id === action.newItem.id
+        );
+
+        const existingCartItem = state.items[existingCartItemIndex];
+
+        let updatedItems;
+
+        // Object-Array-SpreadOperator
+        if (existingCartItem) {
+            const updatedItem = {
+                ...existingCartItem,
+                amount: existingCartItem.amount + action.newItem.amount
+            };
+
+            // Object-Array-SpreadOperator
+            updatedItems = [...state.items];
+            updatedItems[existingCartItemIndex] = updatedItem;
+        } else {
+            // Do not use "push()" here, because in that case,
+            // React won't know the old state snapshot is edited.
+            // So with "contact()", you have to create a brand new snapshot.
+            // This means find old items state and concatenate the new item
+            // which comes with the new ADD action.
+            updatedItems = state.items.concat(action.newItem);
+        }
 
         return { items: updatedItems, totalAmount: updatedTotalAmount };
     }
@@ -51,13 +71,13 @@ const CartProvider = props => {
         // We choose item to be updated. This is an argument coming from
         // addItemToCartHandler function.
         // first property can be accessed as "action.type" in cartReducer function.
-        dispatchCart({type: 'ADD', newItem: item});
+        dispatchCart({ type: 'ADD', newItem: item });
     };
 
     // React-ContextAPI-CentralizingProps
     const removeItemFromCartHandler = id => {
         // React-useReducer-ComplexStateManagement
-        dispatchCart({type: 'REMOVE', newId: id});
+        dispatchCart({ type: 'REMOVE', newId: id });
     };
 
     // React-ContextAPI-CentralizingProps

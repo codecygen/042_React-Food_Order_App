@@ -16,10 +16,12 @@ const Cart = props => {
     // React-ContextAPI-CentralizingProps
     const hasItems = cartCtx.items.length > 0
 
+    // Javascript-bindMethod
     const cartItemRemoveHandler = id => {
 
     };
 
+    // Javascript-bindMethod
     const cartItemAddHandler = item => {
         
     };
@@ -40,6 +42,7 @@ const Cart = props => {
                     // when executed. So we ensure that the both functions will receive
                     // the "id" and "item respectively."
                     onRemove={cartItemRemoveHandler.bind(null, item.id)}
+                    // Javascript-bindMethod
                     onAdd={cartItemAddHandler.bind(null, item)}
                 />
             )}

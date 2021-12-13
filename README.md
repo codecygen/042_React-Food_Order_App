@@ -19,4 +19,7 @@ Searchable Sections:
 - React-useRef-useStateAlternativeNoReRender-forwardRef  
     "MealItemForm.js" will forward the ref to the children component "Input.js".  
     Input we receive from "ref" prop will always be in String format even if it is a number. In order to convert it into a Number type variable, put plus sign in front of it.  
-- Javascript-bindMethod
+- Javascript-bindMethod  
+    This method ensures that the given arguments will be taken into the called functions.  
+- Object-Array-SpreadOperator  
+    How spread operator is used inside an object is give in this example  
