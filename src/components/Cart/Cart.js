@@ -8,32 +8,41 @@ import classes from './Cart.module.css';
 
 const Cart = props => {
     // React-ContextAPI-CentralizingProps
+    // carCtx pulls up the data of "cartContext" in "CartProvider.js"
     const cartCtx = useContext(CartContext);
 
     // React-ContextAPI-CentralizingProps
+    // carCtx pulls up the data of "cartContext" in "CartProvider.js"
     const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
 
     // React-ContextAPI-CentralizingProps
+    // carCtx pulls up the data of "cartContext" in "CartProvider.js"
     const hasItems = cartCtx.items.length > 0
 
     // Javascript-bindMethod
+    // This section controls the function in "CartItem.js". 
+    // It acts upon clicking on "-" sign
     const cartItemRemoveHandler = id => {
 
     };
 
     // Javascript-bindMethod
+    // This section controls the function in "CartItem.js". 
+    // It acts upon clicking on "+" sign
     const cartItemAddHandler = item => {
-        
+        // React-ContextAPI-CentralizingProps
+        // carCtx pulls up the data of "cartContext" in "CartProvider.js"
+        cartCtx.addItem({...item, amount: 1});
     };
 
     // React-ContextAPI-CentralizingProps
     const cartItems =
         <ul className={classes['cart-items']}>
             {/* React-ContextAPI-CentralizingProps */}
-            {cartCtx.items.map(item => 
-                <CartItem 
-                    key={item.id} 
-                    name={item.name} 
+            {cartCtx.items.map(item =>
+                <CartItem
+                    key={item.id}
+                    name={item.name}
                     amount={item.amount}
                     price={item.price}
                     // Javascript-bindMethod
@@ -47,7 +56,7 @@ const Cart = props => {
                 />
             )}
         </ul>
-    ;
+        ;
 
     return (
         // React-onClickEvent-MovinguseStateDownWithProps

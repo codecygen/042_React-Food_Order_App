@@ -1,6 +1,7 @@
 Searchable Sections:
 
 - React-ConditionalRendering-useState
+- React-ComponentAsElementWrapper
 - React-LiftingStateUp
 - React-Portals
 - React-Props-SpreadOperator
