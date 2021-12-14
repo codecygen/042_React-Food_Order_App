@@ -23,7 +23,7 @@ const Cart = props => {
     // This section controls the function in "CartItem.js". 
     // It acts upon clicking on "-" sign
     const cartItemRemoveHandler = id => {
-
+        cartCtx.removeItem(id);
     };
 
     // Javascript-bindMethod
