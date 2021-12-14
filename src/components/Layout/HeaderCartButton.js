@@ -1,5 +1,5 @@
 // React-ContextAPI-CentralizingProps
-// React-useEffect-useState-HeaderCartButtonBumpAnimation
+// React-useEffect-Debouncing-useState-HeaderCartButtonBumpAnimation
 import React, {useContext, useEffect, useState} from 'react';
 import CartIcon from '../Cart/CartIcon';
 // React-ContextAPI-CentralizingProps
@@ -8,13 +8,13 @@ import CartContext from '../../store/cart-context';
 import classes from './HeaderCartButton.module.css';
 
 const HeaderCartButton = props => {
-    // React-useEffect-useState-HeaderCartButtonBumpAnimation
+    // React-useEffect-Debouncing-useState-HeaderCartButtonBumpAnimation
     const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
 
     // React-ContextAPI-CentralizingProps
     const cartCtx = useContext(CartContext);
 
-    // React-useEffect-useState-HeaderCartButtonBumpAnimation
+    // React-useEffect-Debouncing-useState-HeaderCartButtonBumpAnimation
     const { items } = cartCtx;
 
     // We use reduce method because a person can buy multiple of same item.
@@ -24,10 +24,11 @@ const HeaderCartButton = props => {
         return curNumber + item.amount;
       }, 0);
 
-    // React-useEffect-useState-HeaderCartButtonBumpAnimation
+    // React-useEffect-Debouncing-useState-HeaderCartButtonBumpAnimation
     const btnClasses = `${classes.button} ${btnIsHighlighted ? classes.bump : ''}`;
 
-    // React-useEffect-useState-HeaderCartButtonBumpAnimation
+    // React-useEffect-Debouncing-useState-HeaderCartButtonBumpAnimation
+    // This section is about debouncing concept.
     useEffect(() => {
         if (items.length === 0) {
             return;
