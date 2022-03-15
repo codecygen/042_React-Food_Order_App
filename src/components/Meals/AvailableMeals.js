@@ -1,38 +1,50 @@
-import React from 'react';
+// Fetch-API-Fetch-Data-Firebase
+// useEffect hook is needed for fetch API and the restored data from database
+// can be saved as a state with useState hook.
+import React, { useEffect, useState } from 'react';
 import Card from '../UI/Card';
 import MealItem from './MealItem/MealItem';
 
 import classes from './AvailableMeals.module.css';
 
-const DUMMY_MEALS = [
-    {
-        id: 'm1',
-        name: 'Sushi',
-        description: 'Finest fish and veggies',
-        price: 22.99,
-    },
-    {
-        id: 'm2',
-        name: 'Schnitzel',
-        description: 'A german specialty!',
-        price: 16.5,
-    },
-    {
-        id: 'm3',
-        name: 'Barbecue Burger',
-        description: 'American, raw, meaty',
-        price: 12.99,
-    },
-    {
-        id: 'm4',
-        name: 'Green Bowl',
-        description: 'Healthy...and green...',
-        price: 18.99,
-    },
-];
+
 
 const AvailableMeals = () => {
-    const mealList = DUMMY_MEALS.map(meal => (
+    // Fetch-API-Fetch-Data-Firebase
+    // This hook is necessary to store the data that is fetched with 
+    const [meals, setMeals] = useState([]);
+
+    // Fetch-API-Fetch-Data-Firebase
+    // useEffect function should not return a promise. Instead create another function if you need
+    // to return a promise.
+    useEffect(() => {
+        // We create another nested function here which will return Promise.
+        const fetchMeals = async () => {
+            // This link is Firebase "Realtime Database" link
+            // actual link is "https://food-order-app-database-fa642-default-rtdb.firebaseio.com/"
+            // "meals.json" section is coming from the collection name "meals".
+            const res = await fetch('https://food-order-app-database-fa642-default-rtdb.firebaseio.com/meals.json');
+            const mealData = await res.json();
+
+            const loadedMeals = [];
+
+            for (const key in mealData) {
+                loadedMeals.push({
+                    id: key,
+                    name: mealData[key].name,
+                    description: mealData[key].description,
+                    price: mealData[key].price
+                });
+            }
+
+            setMeals(loadedMeals);
+        };
+
+        fetchMeals();
+
+    }, []);
+
+    const mealList = meals.map(meal => (
         <MealItem
             id={meal.id}
             key={meal.id}

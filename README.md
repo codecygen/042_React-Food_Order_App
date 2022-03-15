@@ -29,3 +29,5 @@ Searchable Sections:
     This method ensures that the given arguments will be taken into the called functions.  
 - Object-Array-SpreadOperator  
     How spread operator is used inside an object is give in this example  
+
+- Fetch-API-Fetch-Data
