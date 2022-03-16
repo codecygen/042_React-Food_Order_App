@@ -31,3 +31,7 @@ Searchable Sections:
     How spread operator is used inside an object is give in this example  
 
 - Fetch-API-Fetch-Data-Firebase
+
+- Fetch-API-Fetch-Data-Loading-Message-Firebase
+
+- Fetch-API-Fetch-Data-Error-Handling-Firebase
