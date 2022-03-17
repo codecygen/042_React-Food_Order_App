@@ -2,6 +2,8 @@ import { useRef, useState } from 'react';
 
 import classes from './Checkout.module.css';
 
+
+// React-Form Submission-Basic Approach
 const isEmpty = value => value.trim() === '';
 const isNotFiveChars = value => value.trim().length !== 5;
 

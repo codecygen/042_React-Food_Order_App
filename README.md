@@ -35,3 +35,5 @@ Searchable Sections:
 - Fetch-API-Fetch-Data-Loading-Message-Firebase
 
 - Fetch-API-Fetch-Data-Error-Handling-Firebase
+
+- React-Form Submission-Basic Approach
