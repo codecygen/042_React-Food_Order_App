@@ -63,6 +63,8 @@ const Cart = props => {
 
         setIsSubmitting(false);
         setDidSubmit(true);
+
+        cartCtx.clearCart();
     };
 
     // React-ContextAPI-CentralizingProps
@@ -86,7 +88,7 @@ const Cart = props => {
                 />
             )}
         </ul>
-    ;
+        ;
 
     const modalActions = (
         <div className={classes.actions}>
@@ -108,7 +110,15 @@ const Cart = props => {
     </>
 
     const isSubmittingModalContent = <p>Sending order data...</p>
-    const didSubmitModalContent = <p>Successfully sent the order!</p>
+    const didSubmitModalContent = (
+        <>
+            <p>Successfully sent the order!</p>
+            <div className={classes.actions}>
+                {/* React-onClickEvent-MovinguseStateDownWithProps */}
+                <button className={classes.button} onClick={props.onClose}>Close</button>
+            </div>
+        </>
+    );
 
     return (
         // React-onClickEvent-MovinguseStateDownWithProps

@@ -74,6 +74,10 @@ const cartReducer = (state, action) => {
         };
     }
 
+    if (action.type === 'CLEAR') {
+        return defaultCartState;
+    }
+
     return defaultCartState;
 };
 
@@ -103,6 +107,10 @@ const CartProvider = props => {
         dispatchCart({ type: 'REMOVE', newId: id });
     };
 
+    const clearCartHeandler = () => {
+        dispatchCart({ type: 'CLEAR' });
+    };
+
     // React-ContextAPI-CentralizingProps
     const cartContext = {
         // React-useReducer-ComplexStateManagement
@@ -114,7 +122,8 @@ const CartProvider = props => {
         // to "addItemToCartHandler"
         addItem: addItemToCartHandler,
         // React-ContextAPI-CentralizingProps
-        removeItem: removeItemFromCartHandler
+        removeItem: removeItemFromCartHandler,
+        clearCart: clearCartHeandler
     };
 
     return (
